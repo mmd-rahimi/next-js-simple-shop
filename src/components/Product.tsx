@@ -45,7 +45,7 @@ function Product({ product }: IProductProps) {
           {/* add to cart */}
           <button 
             className="bg-black text-white px-4 py-2 cursor-pointer rounded-lg 
-            hover:bg-gray-800 duration-200 text-sm font-medium
+            hover:bg-gray-700 duration-200 text-sm font-medium
             w-[70%]"
           >
             Add to cart
@@ -54,7 +54,7 @@ function Product({ product }: IProductProps) {
           <Link
             className="p-3 bg-gray-200 hover:bg-gray-400 duration-200 text-black 
             rounded-full flex items-center justify-center"
-            href={`/products/${product.id}`}
+            href={`/${product.id}`}
           >
             <FaEye />
           </Link>

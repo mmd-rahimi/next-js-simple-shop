@@ -3,7 +3,7 @@ import ProductList from "@/components/ProductList";
 export default async function Home() {
 
   const res = await fetch("https://fakestoreapi.com/Products")
-  const products = await res.json()
+  const products = await res.json()  
   console.log(products);
   
 
