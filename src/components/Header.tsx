@@ -9,7 +9,6 @@ function Header() {
         <Link href="/" className='text-xl font-semibold hover:scale-110 duration-100'>Home</Link>
         <h2 className='text-2xl font-bold'>Mood Style</h2>
         <Link href="/cart" className='hover:scale-120 duration-100'><FaCartShopping size={25}/></Link>
-
       </div>
     </div>
   )

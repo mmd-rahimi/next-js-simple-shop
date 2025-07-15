@@ -1,4 +1,4 @@
-import { IProductDetailParams, ProductType } from "@/types/types";
+import { IProductDetailParams, TProductType } from "@/types/types";
 import React from "react";
 import { BiShoppingBag } from "react-icons/bi";
 import { BsStarFill } from "react-icons/bs";
@@ -7,7 +7,7 @@ async function ProductDetail({ params }: IProductDetailParams) {
   const { id } = params;
 
   const res = await fetch(`https://fakestoreapi.com/Products/${id}`);
-  const product: ProductType = await res.json();
+  const product: TProductType = await res.json();
 
   return (
     <div

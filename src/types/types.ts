@@ -1,4 +1,4 @@
-export interface ProductType {
+export interface TProductType {
 id: number,
 title: string,
 price: number,
@@ -9,7 +9,7 @@ category?: string
 }
 
 export interface IProductListProps {
-products: ProductType[]
+products: TProductType[]
 }
 
 export interface IProductDetailParams {
