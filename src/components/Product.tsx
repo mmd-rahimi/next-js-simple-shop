@@ -1,13 +1,19 @@
-import { ProductType } from "@/types/types";
+"use client"
+
+import { useCart } from "@/context/CartContext";
+import { TProductType } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 import { FaEye } from "react-icons/fa";
 
 export interface IProductProps {
-  product: ProductType;
+  product: TProductType;
 }
 
 function Product({ product }: IProductProps) {
+
+  const {AddToCart} = useCart()
+
   return (
     <div
       className="p-4 flex flex-col items-center gap-2 w-[17rem] h-[23rem] 
@@ -43,7 +49,7 @@ function Product({ product }: IProductProps) {
       <div className="w-full absolute bottom-4 left-0 px-4">
         <div className="w-full flex flex-row justify-between items-center">
           {/* add to cart */}
-          <button 
+          <button onClick={() => AddToCart(product)}
             className="bg-black text-white px-4 py-2 cursor-pointer rounded-lg 
             hover:bg-gray-700 duration-200 text-sm font-medium
             w-[70%]"
