@@ -1,7 +1,7 @@
 "use client";
 
 import { TProductType } from "@/types/types";
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 export interface ICartContext {
   AddToCart: (Product: TProductType) => void;
@@ -26,6 +26,20 @@ function CartProvider({ children }: { children: ReactNode }) {
   // cart state
   const [cart, setCart] = useState<(TProductType & { quantity: number })[]>([]);
 
+  // read from local storage
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if(storedCart) {
+      setCart(JSON.parse(storedCart))
+    }
+  }, [])
+
+  // saving local storage changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
+
+  // plus btn
   const PlusBtn = (productId: number) => {
     setCart((prev) =>
       prev.map((item) =>
@@ -34,6 +48,7 @@ function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
+  // minus btn
   const MinusBtn = (productId: number) => {
     setCart((prev) =>
       prev
@@ -46,6 +61,8 @@ function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
+
+  // add to cart
   const AddToCart = (product: TProductType) => {
     setCart((prev) => {
       const existingProduct = prev.find((item) => item.id === product.id);
@@ -60,6 +77,7 @@ function CartProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  // remove from cart
   const RemoveFromCart = (productId: number) => {
     setCart((prev) => prev.filter((product) => product.id !== productId));
   };
