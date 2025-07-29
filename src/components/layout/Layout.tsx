@@ -10,8 +10,8 @@ type TLayoutProps = {
 function Layout({ children }: TLayoutProps) {
   return (
     <CartProvider>
-      <Header />
-      {children}
+        <Header />
+        {children}
     </CartProvider>
   );
 }

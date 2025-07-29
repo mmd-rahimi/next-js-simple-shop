@@ -11,8 +11,8 @@ interface IUser {
 
 // fake data
 const users: IUser[] = [
-  { id: "1", email: "admin@test.com", password: "admin123", role: "admin" },
-  { id: "2", email: "user@test.com", password: "user123", role: "user" },
+  { id: "1", email: "admin@test.com", password: "admin1234", role: "admin" },
+  { id: "2", email: "user@test.com", password: "user1234", role: "user" },
 ];
 
 export const authOptions: NextAuthOptions = {
